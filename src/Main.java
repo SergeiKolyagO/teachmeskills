@@ -25,12 +25,10 @@ public class Main {
         System.out.println("Введите число для поиска");
         int item = scanner.nextInt();
     //    scanner.close();
-        for (int i = 0; i < numb.length; i++){
-            if (numb[i] == item) {
+        for (int i : numb){
+            if (i == item) {
                 yesOrNo = true;
                 break;
-            } else {
-                yesOrNo = false;
             }
         }
         if (yesOrNo){
@@ -107,19 +105,19 @@ public class Main {
                 sum += num1[i];
             }
             min = num1[0];
-            max = num1[0];
-            for (int i = 0; i < num1.length; i++) {
-                if (min >= num1[i]) {
-                    min = num1[i];
+            max = 0;
+            for (int i: num1) {
+                if (min >= i) {
+                    min = i;
                 }
-                if (max <= num1[i]) {
-                    max = num1[i];
+                if (max <= i) {
+                    max = i;
                 }
             }
             System.out.println("полученный массив: \n" + Arrays.toString(num1));
             System.out.println("Минимальное число : " + min);
             System.out.println("Максимальное число : " + max);
-            System.out.println("Среднее : " + sum / size);
+            System.out.println("Среднее : " + (double) sum / (double) size);
             scanner.close();
         }
     }
@@ -131,21 +129,17 @@ public class Main {
         int[] numbs1 = new int[5];
         int[] numbs2 = new int[5];
         Random random = new Random();
-        int sum1 = 0;
-        int sum2 = 0;
-        double average1 = 0;
-        double average2 = 0;
+        double sum1 = 0;
+        double sum2 = 0;
         for (int i = 0; i < 5 ; i++){
             numbs1[i] = random.nextInt(0,20);
             sum1 += numbs1[i];
             numbs2[i] = random.nextInt(0,20);
             sum2 += numbs2[i];
         }
-        average1 = sum1/5;
-        average2 = sum2/5;
         System.out.println(Arrays.toString(numbs1) + "\n" + Arrays.toString(numbs2));
-        System.out.println((average1>average2) ? "среднее первого массива больше" :
-                (average1<average2) ? "среднее второго массива больше" : "средние арифметические равны");
+        System.out.println((sum1/numbs1.length) > (sum2/numbs2.length) ? "среднее первого массива больше" :
+                ((sum1/numbs1.length) < (sum2/numbs2.length)) ? "среднее второго массива больше" : "средние арифметические равны");
     }
 
 }

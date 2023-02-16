@@ -25,6 +25,7 @@ public class HomeWorkFive {
         System.out.println("введите число на которое хотите увеличить массив: ");
         Scanner scanner = new Scanner(System.in);
         int numb = scanner.nextInt();
+        scanner.close();
         for (int i = 0; i < array1.length; i++) {
             for (int j = 0; j < array1[i].length; j++){
                 array1[i][j] += numb;

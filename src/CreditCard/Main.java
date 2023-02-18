@@ -1,12 +1,9 @@
 package CreditCard;
-
-import CreditCard.CreditCard;
-
 public class Main {
     public static void main(String[] args) {
-        CreditCard card1 = new CreditCard(001, 1500);
-        CreditCard card2 = new CreditCard(002, 1000);
-        CreditCard card3 = new CreditCard(003, 700);
+        CreditCard card1 = new CreditCard(1, 1500);
+        CreditCard card2 = new CreditCard(2, 1000);
+        CreditCard card3 = new CreditCard(3, 700);
         card1.getInfoCard();
         card2.getInfoCard();
         card3.getInfoCard();

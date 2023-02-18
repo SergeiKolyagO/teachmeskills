@@ -1,3 +1,5 @@
+package CreditCard;
+
 public class CreditCard {
     int accountNumber;
     int currentSum;

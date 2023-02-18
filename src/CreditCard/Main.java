@@ -1,3 +1,7 @@
+package CreditCard;
+
+import CreditCard.CreditCard;
+
 public class Main {
     public static void main(String[] args) {
         CreditCard card1 = new CreditCard(001, 1500);

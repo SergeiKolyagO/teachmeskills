@@ -17,6 +17,7 @@ public class Person implements Position{
                 "\nВозраст: " + this.age);
         getPosition();
         System.out.println();
+
     }
 
     @Override

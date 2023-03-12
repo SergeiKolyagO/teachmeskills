@@ -1,145 +1,29 @@
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
-
 public class Main {
-    public static void main(String[] args) {
-        getNumYesOrNo();
-        getRemoveItems();
-        getNumMinMax();
-        getAverage();
-    }
+    public static void main (String [] args){
+        String s1 = "5555-eee-1234-xxx-1a2b";
+        getOne(s1); //Вывести на экран в одну строку два первых блока по 4 цифры.
+        getTwo(s1); //Вывести на экран номер документа, но блоки из трех букв заменить на ***
+        getSix(s1); //Проверить начинается ли номер документа с последовательности 555.
+        getSeven(s1);
 
-    public static void getNumYesOrNo(){
-        /* Task 1
-        Поиск числа в массиве
-         */
-        boolean yesOrNo = false;
-        int [] numb = new int[10];
-        Random random = new Random();
-        for (int i = 0; i < numb.length; i++){
-            numb[i] = random.nextInt(-100,100);
-        }
-        System.out.println("полученный массив: \n" + Arrays.toString(numb));
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите число для поиска");
-        int item = scanner.nextInt();
-    //    scanner.close();
-        for (int i : numb){
-            if (i == item) {
-                yesOrNo = true;
-                break;
-            }
-        }
-        if (yesOrNo){
-            System.out.println("Такое число есть в массиве");
-        } else {
-            System.out.println("Такого числа нет в массиве");
-        }
 
     }
-    public static void getRemoveItems() {
-        /* Task 2
-        Создать массив. Удалить все вхождения заданого числа с массива.
-        Вывести массив без указанного числа.
-         */
-        int[] numbs = new int[10];
-        Random random = new Random();
-        int count = 0;
-        for (int i = 0; i < numbs.length; i++){
-            numbs[i] = random.nextInt(-10,10);
-          }
-        System.out.println("полученный массив: \n" + Arrays.toString(numbs));
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("введите число которое хотите удалить");
-        int item = scanner.nextInt();
-    //    scanner.close();
-        // смотрим сколько повторяющихся элементов
-        for (int i = 0; i < numbs.length; i++) {
-            if (numbs[i] == item) {
-                count++;
-            }
-        }
-        if (count == 0) {
-            System.out.println("такого числа в массиве нет");
-        }
-
-        if (numbs.length - count == 0) { // если массив состоит из одних одинаковых чисел которые нужно удалить
-            System.out.println("массив не существует");
-        } else {
-            int[] remItem = new int[numbs.length - count];
-            for (int i = 0, j = 0; i < numbs.length; i++) {
-                if (numbs[i] != item) {
-                    remItem[j] = numbs[i];
-                    j++;
-                } else if ( i + 1 < numbs.length) {
-
-                    remItem[j] = numbs[i + 1];
-                }
-                else {
-                    break;
-                }
-            }
-            System.out.println("Новый массив : \n"+ Arrays.toString(remItem));
-        }
+    public static void getOne(String s){
+        System.out.println(s.substring(0,4) + s.substring(9,13));
     }
-
-    public static void getNumMinMax (){
-        /* Task 3
-        Указать длину массива. Создать массив.
-        Найти минимальное максимальное и среднее значение.
-         */
-        System.out.println("Введите размер массива");
-        Scanner scanner = new Scanner(System.in);
-        int size = scanner.nextInt();
-        if (size <= 0) {
-            System.out.println("такой размер массива не существует");
-        } else {
-            Random random = new Random();
-            int[] num1 = new int[size];
-            int min;
-            int max;
-            int sum = 0;
-            for (int i = 0; i < num1.length; i++) {
-                num1[i] = random.nextInt(0, 10);
-                sum += num1[i];
-            }
-            min = num1[0];
-            max = 0;
-            for (int i: num1) {
-                if (min >= i) {
-                    min = i;
-                }
-                if (max <= i) {
-                    max = i;
-                }
-            }
-            System.out.println("полученный массив: \n" + Arrays.toString(num1));
-            System.out.println("Минимальное число : " + min);
-            System.out.println("Максимальное число : " + max);
-            System.out.println("Среднее : " + (double) sum / (double) size);
-            scanner.close();
-        }
+    public static void getTwo(String s){
+        String s2 = "***";
+        System.out.println((s.replaceAll(s.substring(5,8),s2)
+                .replaceAll(s.substring(14,17),s2)));
     }
-    public static void getAverage (){
-        /* Task 4
-        Создать два массива.
-        Найти среднее арифметическое. Вывести в каком массиве среднее арифметическое больше
-         */
-        int[] numbs1 = new int[5];
-        int[] numbs2 = new int[5];
-        Random random = new Random();
-        double sum1 = 0;
-        double sum2 = 0;
-        for (int i = 0; i < 5 ; i++){
-            numbs1[i] = random.nextInt(0,20);
-            sum1 += numbs1[i];
-            numbs2[i] = random.nextInt(0,20);
-            sum2 += numbs2[i];
-        }
-        System.out.println(Arrays.toString(numbs1) + "\n" + Arrays.toString(numbs2));
-        System.out.println((sum1/numbs1.length) > (sum2/numbs2.length) ? "среднее первого массива больше" :
-                ((sum1/numbs1.length) < (sum2/numbs2.length)) ? "среднее второго массива больше" : "средние арифметические равны");
+    public static void getSix(String s){
+        boolean b;
+        b = s.substring(0,3).indexOf("555") != -1;
+        System.out.println(b);
     }
-
+    public static void getSeven(String s){
+        boolean b;
+        b = s.lastIndexOf("1a2b") != -1;
+        System.out.println(b);
+    }
 }

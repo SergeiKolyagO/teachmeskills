@@ -1,13 +1,10 @@
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalField;
 import java.util.*;
 
 class Main {
     public static void main (String [] args){
-       // getDay(); //вывести на консоль название дня недели
-        getTuesday();
+        getDay(); //вывести на консоль название дня недели
+        getTuesday(); // вывести на консоль дату след вторника
     }
     public static void getDay (){
         SimpleDateFormat formatter = new SimpleDateFormat("d-M-yyyy");

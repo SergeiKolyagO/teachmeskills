@@ -19,6 +19,7 @@ class Main {
         catch (Exception e) {
             System.out.println("неверно ввели дату");
         }
+        scanner.close();
     }
     public static void getTuesday(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMMM yyyy");
